@@ -1,2 +1,3 @@
-# frontend
+# Welcome to Mapspool
+
 browser frontend
