@@ -6,16 +6,19 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { DomComponent } from './dom/dom.component';
+import { TopnavbarComponent } from './dom/topnavbar/topnavbar.component';
+import { LeftsidebarComponent } from './dom/leftsidebar/leftsidebar.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  //    return new PruningTranslationLoader(http);
-      return new TranslateHttpLoader(http);
-  }
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    DomComponent
+    DomComponent,
+    TopnavbarComponent,
+    LeftsidebarComponent
   ],
   imports: [
     BrowserModule,
