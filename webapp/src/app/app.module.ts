@@ -8,6 +8,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { DomComponent } from './dom/dom.component';
 import { TopnavbarComponent } from './dom/topnavbar/topnavbar.component';
 import { LeftsidebarComponent } from './dom/leftsidebar/leftsidebar.component';
+import { ContentboxComponent } from './dom/contentbox/contentbox.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -18,7 +19,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     DomComponent,
     TopnavbarComponent,
-    LeftsidebarComponent
+    LeftsidebarComponent,
+    ContentboxComponent
   ],
   imports: [
     BrowserModule,
