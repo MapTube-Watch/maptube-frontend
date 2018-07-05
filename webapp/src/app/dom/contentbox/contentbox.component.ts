@@ -12,4 +12,14 @@ export class ContentboxComponent implements OnInit {
   ngOnInit() {
   }
 
+  // mv_metaData :Array<any> = [
+  //   [{"a":"1", "b":"2"}],
+  //   [{"a":"10", "b":"20"}]
+  // ]
+
+  mv_metaData :Array<any> = [
+    {"a":"1", "b":"2"},
+    {"a":"10", "b":"20"}
+  ]
+  
 }

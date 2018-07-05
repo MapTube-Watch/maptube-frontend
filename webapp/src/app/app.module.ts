@@ -9,6 +9,7 @@ import { DomComponent } from './dom/dom.component';
 import { TopnavbarComponent } from './dom/topnavbar/topnavbar.component';
 import { LeftsidebarComponent } from './dom/leftsidebar/leftsidebar.component';
 import { ContentboxComponent } from './dom/contentbox/contentbox.component';
+import { MapVideoTemplateComponent } from './dom/contentbox/map-video-template/map-video-template.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -20,7 +21,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DomComponent,
     TopnavbarComponent,
     LeftsidebarComponent,
-    ContentboxComponent
+    ContentboxComponent,
+    MapVideoTemplateComponent
   ],
   imports: [
     BrowserModule,
