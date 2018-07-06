@@ -20,34 +20,25 @@ export class MapVideoTemplateComponent implements OnInit {
   }
 
   ngOnInit() {
-    ////// 
     this.initializeMap()
-    console.log(this.mv_mapId)
-
   }
 
   private initializeMap() {
-    var this1 = this;
+    var thisfun = this;
     setTimeout(function (){
-      this1.buildMap();
+      thisfun.buildMap();
     }, 1)
-    
   }
 
   map: mapboxgl.Map;
   style = 'mapbox://styles/mapbox/outdoors-v9';
   lat = 37.75;
   lng = -122.41;
-  message = 'Hello World!';
-
-  // xx :string = `0${this.mv_mapId}`;
-  
+  message = 'Hello World!';  
 
   buildMap() {
     this.map = new mapboxgl.Map({
       container: `map${this.mv_mapId}`,
-      // container: `map0`,
-      // container: `map`,
       style: this.style,
       zoom: 13,
       center: [this.lng, this.lat],
