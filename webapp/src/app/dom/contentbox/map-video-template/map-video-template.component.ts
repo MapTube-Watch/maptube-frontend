@@ -66,8 +66,8 @@ export class MapVideoTemplateComponent implements OnInit {
       },
       'layout': {},
       'paint': {
-        'fill-color': '#088',
-        'fill-opacity': 0.8
+        'fill-color': '#FF0000',
+        'fill-opacity': 0.5
       }
       // layout: {
       //   'text-field': '{message}',
