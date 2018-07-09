@@ -6,11 +6,15 @@
     <div class="css-map-custom" id="map{{mv_mapId}}"></div>
     <!-- <div class="map" id="map"></div> -->
 
-    <div class="card-body">
+    <div class="card-body css-metadata-custom">
       <h4 class="card-title">
         <a href="#">{{mv_title}}</a>
       </h4>
-      <p class="card-text">{{mv_description}}</p>
+      <p>{{author_name | uppercase}}
+        <br>
+      <b>{{tag_1}}, {{tag_2}}, {{tag_3}}</b> 
+      <br>
+      <font size="2">{{mv_views}} views, {{created_on}} ago</font></p>
     </div>
   </div>
 
