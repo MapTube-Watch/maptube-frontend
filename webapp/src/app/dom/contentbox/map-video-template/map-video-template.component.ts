@@ -10,8 +10,20 @@ import { environment } from '../../../../environments/environment';
   styleUrls: ['./map-video-template.component.css']
 })
 export class MapVideoTemplateComponent implements OnInit {
+  @Input() centre_latitude :string = "";
+  @Input() centre_longitude :string = "";
+  @Input() zoom_level :string = "";
+  @Input() map_style :string = "";
+  @Input() bbox_polygon :string = "";
   @Input() mv_title :string = "";
-  @Input() mv_description :string = "";
+  @Input() author_name :string = "";
+  @Input() tag_1 :string = "";
+  @Input() tag_2 :string = "";
+  @Input() tag_3 :string = "";
+  @Input() mv_views :string = "";
+  @Input() created_on :string = "";
+  @Input() mv_length :string = "";
+  @Input() mv_location :string = "";
   @Input() mv_mapId :number;
 
   constructor() {
@@ -20,70 +32,56 @@ export class MapVideoTemplateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initializeMap()
-  }
-
-  private initializeMap() {
     var thisfun = this;
     setTimeout(function (){
       thisfun.buildMap();
     }, 1)
   }
 
-  map: mapboxgl.Map;
-  style = 'mapbox://styles/mapbox/outdoors-v9';
-  lat = 37.75;
-  lng = -122.41;
-  message = 'Hello World!';  
-
+  map: mapboxgl.Map;  
   buildMap() {
     this.map = new mapboxgl.Map({
       container: `map${this.mv_mapId}`,
-      style: this.style,
-      zoom: 13,
-      center: [this.lng, this.lat],
+      style: this.map_style, // https://evouala.zendesk.com/hc/en-us/articles/115001020212-Connect-Mapbox-basemap-resources
+      zoom: this.zoom_level,
+      center: [this.centre_longitude, this.centre_latitude],
       scrollZoom: false,
     });
 
   this.map.on('load', (event) => {
-
-    /// register source
-    // this.map.addSource('firebase', {
-    //    type: 'geojson',
-    //    data: {
-    //      type: 'FeatureCollection',
-    //      features: []
-    //    }
-    // });
-
-    /// get source
-    // this.source = this.map.getSource('firebase')
-
-    /// subscribe to realtime database and set data source
-    // this.markers.subscribe(markers => {
-    //     let data = new FeatureCollection(markers)
-    //     this.source.setData(data)
-    // })
-
-    /// create map layers with realtime data
-    // this.map.addLayer({
-    //   id: 'firebase',
-    //   source: 'firebase',
-    //   type: 'symbol',
-    //   layout: {
-    //     'text-field': '{message}',
-    //     'text-size': 24,
-    //     'text-transform': 'uppercase',
-    //     'icon-image': 'rocket-15',
-    //     'text-offset': [0, 1.5]
-    //   },
-    //   paint: {
-    //     'text-color': '#f16624',
-    //     'text-halo-color': '#fff',
-    //     'text-halo-width': 2
-    //   }
-    // })
-
+    // Youtube - https://www.youtube.com/watch?v=Zn3Xx-TSrM8
+    this.map.addLayer({
+      id: 'template_layer{{this.mv_mapId}}',
+      // source: 'firebase',
+      type: 'fill',
+      'source': {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': JSON.parse(this.bbox_polygon)
+          }
+        }
+      },
+      'layout': {},
+      'paint': {
+        'fill-color': '#088',
+        'fill-opacity': 0.8
+      }
+      // layout: {
+      //   'text-field': '{message}',
+      //   'text-size': 24,
+      //   'text-transform': 'uppercase',
+      //   'icon-image': 'rocket-15',
+      //   'text-offset': [0, 1.5]
+      // },
+      // paint: {
+      //   'text-color': '#f16624',
+      //   'text-halo-color': '#fff',
+      //   'text-halo-width': 2
+      // }
+    })
   })
 
 }
