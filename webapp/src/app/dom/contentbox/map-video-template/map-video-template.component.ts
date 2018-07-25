@@ -32,10 +32,10 @@ export class MapVideoTemplateComponent implements OnInit {
   }
 
   ngOnInit() {
-    var thisfun = this;
-    setTimeout(function (){
-      thisfun.buildMap();
-    }, 1)
+  }
+
+  ngAfterViewInit(){
+    this.buildMap();
   }
 
   map: mapboxgl.Map;  
