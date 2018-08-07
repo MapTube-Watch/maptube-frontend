@@ -26,7 +26,7 @@ export class MapVideoWatchComponent implements OnInit {
   }
 
   onGet() {
-    console.log(JSON.parse(JSON.stringify(this.responseData)))
+    console.log(this.responseData)
   }
 
   // onGet() {
