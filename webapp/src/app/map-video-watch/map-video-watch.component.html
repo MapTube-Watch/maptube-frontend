@@ -1,4 +1,11 @@
-<p>
-  map-video-watch works!
-  {{mv_watch_url}}
-</p>
+<!-- <div *ngIf="responseData; then videoRender else error404"></div>
+<ng-template #error404>Content Not Found :(</ng-template>
+<ng-template #videoRender>render</ng-template> -->
+
+<button (click)="onGet()">click</button>
+
+<ng-template [ngIf]="responseData">Video Found</ng-template>
+<ng-template [ngIf]="errorData">Video Not Found :(</ng-template>
+<ng-template [ngIf]="!responseData && !errorData">Content Loading ...</ng-template>
+
+

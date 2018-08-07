@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { DomComponent } from './dom/dom.component';
 import { TopnavbarComponent } from './dom/topnavbar/topnavbar.component';
 import { LeftsidebarComponent } from './dom/leftsidebar/leftsidebar.component';
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
         deps: [HttpClient]
       }
     }),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
