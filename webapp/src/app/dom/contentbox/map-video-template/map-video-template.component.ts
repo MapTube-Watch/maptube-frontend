@@ -25,6 +25,7 @@ export class MapVideoTemplateComponent implements OnInit {
   @Input() mv_length :string = "";
   @Input() mv_location :string = "";
   @Input() mv_mapId :number;
+  @Input() mv_watch_url :string = "";
 
   constructor() {
     // Basic Angular Mapbox layout https://angularfirebase.com/lessons/build-realtime-maps-in-angular-with-mapbox-gl/

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -10,10 +11,16 @@ import { TopnavbarComponent } from './dom/topnavbar/topnavbar.component';
 import { LeftsidebarComponent } from './dom/leftsidebar/leftsidebar.component';
 import { ContentboxComponent } from './dom/contentbox/contentbox.component';
 import { MapVideoTemplateComponent } from './dom/contentbox/map-video-template/map-video-template.component';
+import { MapVideoWatchComponent } from './map-video-watch/map-video-watch.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
+
+const appRoutes: Routes = [
+  { path: '', component: DomComponent},
+  { path: 'watch/:mv_url', component: MapVideoWatchComponent},
+]
 
 @NgModule({
   declarations: [
@@ -22,7 +29,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TopnavbarComponent,
     LeftsidebarComponent,
     ContentboxComponent,
-    MapVideoTemplateComponent
+    MapVideoTemplateComponent,
+    MapVideoWatchComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +41,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

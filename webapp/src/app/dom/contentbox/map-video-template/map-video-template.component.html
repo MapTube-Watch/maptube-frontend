@@ -9,7 +9,8 @@
     <div class="card-body css-metadata-custom">
       <h6>{{mv_location}}, {{mv_length}}</h6>
       <h4>
-        <a href="#">{{mv_title}}</a>
+        <!-- <a href={{mv_watch_url}} target="_blank">{{mv_title}}</a> -->
+        <a routerLink="watch/{{mv_watch_url}}" target="_blank">{{mv_title}}</a>
       </h4>
       <p><font size="2">{{author_name | uppercase}}</font>
         <br>
