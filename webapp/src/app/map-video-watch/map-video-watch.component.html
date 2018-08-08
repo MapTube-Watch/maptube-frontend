@@ -4,8 +4,8 @@
 
 <button (click)="onGet()">click</button>
 
-<ng-template [ngIf]="responseData">Video Found</ng-template>
-<ng-template [ngIf]="errorData">Video Not Found :(</ng-template>
-<ng-template [ngIf]="!responseData && !errorData">Content Loading ...</ng-template>
+<ng-template [ngIf]="responseData"><app-video-buffer></app-video-buffer></ng-template>
+<ng-template [ngIf]="errorData"><app-error-no-video></app-error-no-video></ng-template>
+<ng-template [ngIf]="!responseData && !errorData"><app-content-loading></app-content-loading></ng-template>
 
 

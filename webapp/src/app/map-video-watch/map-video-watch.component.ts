@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpService1 } from '../http.service';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-map-video-watch',
   templateUrl: './map-video-watch.component.html',
   styleUrls: ['./map-video-watch.component.css'],
-  providers: [HttpService1]
+  providers: [HttpService]
 })
 export class MapVideoWatchComponent implements OnInit {
   mv_watch_url: number;
   responseData: Object;
   errorData: Object;
 
-  constructor(private route: ActivatedRoute, private http: HttpService1) { 
+  constructor(private route: ActivatedRoute, private http: HttpService) { 
 
   }
 
