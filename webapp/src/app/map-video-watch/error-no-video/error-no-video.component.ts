@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-error-no-video',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./error-no-video.component.css']
 })
 export class ErrorNoVideoComponent implements OnInit {
+  @Input() errorBody: String;
 
   constructor() { }
 

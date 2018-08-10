@@ -10,8 +10,8 @@ import { HttpService } from '../services/http.service';
 })
 export class MapVideoWatchComponent implements OnInit {
   mv_watch_url: number;
-  responseData: Object;
-  errorData: Object;
+  responseBody: JSON;
+  errorBody: String;
 
   constructor(private route: ActivatedRoute, private http: HttpService) { 
 
@@ -19,24 +19,14 @@ export class MapVideoWatchComponent implements OnInit {
 
   ngOnInit() {
     this.mv_watch_url = this.route.snapshot.params['mv_url']
-    this.http.getHttpWatchContent("https://raw.githubusercontent.com/Zia-/Ally-gis-code-challenge-Solution/master/data/activity_points.geojson").subscribe(
-      (response) => this.responseData = response,
-      (error) => this.errorData = error
+    this.http.getHttpWatchContent("https://raw.githubusercontent.com/MapTube-Watch/maptube-json/master/sample_json/video_time.json").subscribe(
+      (response) => this.responseBody = JSON.parse(response["_body"]),
+      (error) => this.errorBody = error["_body"]
     );
   }
 
   onGet() {
-    console.log(this.responseData)
+    console.log(this.responseBody)
   }
-
-  // onGet() {
-  //   this.http.getHttpWatchContent("https://raw.githubusercontent.com/Zia-/Ally-gis-code-challenge-Solution/master/data/activity_points.geojson1").subscribe(
-  //     (response) => console.log(typeof(response)),
-  //     (error) => console.log(error)
-  //   );
-  // }
-
-
   
-
 }
