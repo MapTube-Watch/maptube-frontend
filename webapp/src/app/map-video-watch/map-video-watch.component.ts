@@ -13,20 +13,16 @@ export class MapVideoWatchComponent implements OnInit {
   responseBody: JSON;
   errorBody: String;
 
-  constructor(private route: ActivatedRoute, private http: HttpService) { 
+  constructor(private route: ActivatedRoute, private httpService: HttpService) { 
 
   }
 
   ngOnInit() {
     this.mv_watch_url = this.route.snapshot.params['mv_url']
-    this.http.getHttpWatchContent("https://raw.githubusercontent.com/MapTube-Watch/maptube-json/master/sample_json/video_time.json").subscribe(
+    this.httpService.getHttpWatchContent("https://raw.githubusercontent.com/MapTube-Watch/maptube-json/master/sample_json/test1.json").subscribe(
       (response) => this.responseBody = JSON.parse(response["_body"]),
       (error) => this.errorBody = error["_body"]
     );
-  }
-
-  onGet() {
-    console.log(this.responseBody)
   }
   
 }

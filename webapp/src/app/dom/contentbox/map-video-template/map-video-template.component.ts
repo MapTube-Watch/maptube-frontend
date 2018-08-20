@@ -49,42 +49,42 @@ export class MapVideoTemplateComponent implements OnInit {
       scrollZoom: false,
     });
 
-  this.map.on('load', (event) => {
-    // Youtube - https://www.youtube.com/watch?v=Zn3Xx-TSrM8
-    this.map.addLayer({
-      id: 'template_layer{{this.mv_mapId}}',
-      // source: 'firebase',
-      type: 'fill',
-      'source': {
-        'type': 'geojson',
-        'data': {
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Polygon',
-            'coordinates': JSON.parse(this.bbox_polygon)
+    this.map.on('load', (event) => {
+      // Youtube - https://www.youtube.com/watch?v=Zn3Xx-TSrM8
+      this.map.addLayer({
+        id: 'template_layer{{this.mv_mapId}}',
+        // source: 'firebase',
+        type: 'fill',
+        'source': {
+          'type': 'geojson',
+          'data': {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              'coordinates': JSON.parse(this.bbox_polygon)
+            }
           }
+        },
+        'layout': {},
+        'paint': {
+          'fill-color': '#FF0000',
+          'fill-opacity': 0.5
         }
-      },
-      'layout': {},
-      'paint': {
-        'fill-color': '#FF0000',
-        'fill-opacity': 0.5
-      }
-      // layout: {
-      //   'text-field': '{message}',
-      //   'text-size': 24,
-      //   'text-transform': 'uppercase',
-      //   'icon-image': 'rocket-15',
-      //   'text-offset': [0, 1.5]
-      // },
-      // paint: {
-      //   'text-color': '#f16624',
-      //   'text-halo-color': '#fff',
-      //   'text-halo-width': 2
-      // }
+        // layout: {
+        //   'text-field': '{message}',
+        //   'text-size': 24,
+        //   'text-transform': 'uppercase',
+        //   'icon-image': 'rocket-15',
+        //   'text-offset': [0, 1.5]
+        // },
+        // paint: {
+        //   'text-color': '#f16624',
+        //   'text-halo-color': '#fff',
+        //   'text-halo-width': 2
+        // }
+      })
     })
-  })
 
-}
+  }
 
 }
