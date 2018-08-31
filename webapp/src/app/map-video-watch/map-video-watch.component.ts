@@ -1,42 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpService1 } from '../http.service';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-map-video-watch',
   templateUrl: './map-video-watch.component.html',
   styleUrls: ['./map-video-watch.component.css'],
-  providers: [HttpService1]
+  providers: [HttpService]
 })
 export class MapVideoWatchComponent implements OnInit {
   mv_watch_url: number;
-  responseData: Object;
-  errorData: Object;
+  responseBody: JSON;
+  errorBody: String;
 
-  constructor(private route: ActivatedRoute, private http: HttpService1) { 
+  constructor(private route: ActivatedRoute, private httpService: HttpService) { 
 
   }
 
   ngOnInit() {
     this.mv_watch_url = this.route.snapshot.params['mv_url']
-    this.http.getHttpWatchContent("https://raw.githubusercontent.com/Zia-/Ally-gis-code-challenge-Solution/master/data/activity_points.geojson").subscribe(
-      (response) => this.responseData = response,
-      (error) => this.errorData = error
+    this.httpService.getHttpWatchContent("https://raw.githubusercontent.com/MapTube-Watch/maptube-json/master/sample_json/test1.json").subscribe(
+      (response) => this.responseBody = JSON.parse(response["_body"]),
+      (error) => this.errorBody = error["_body"]
     );
   }
-
-  onGet() {
-    console.log(JSON.parse(JSON.stringify(this.responseData)))
-  }
-
-  // onGet() {
-  //   this.http.getHttpWatchContent("https://raw.githubusercontent.com/Zia-/Ally-gis-code-challenge-Solution/master/data/activity_points.geojson1").subscribe(
-  //     (response) => console.log(typeof(response)),
-  //     (error) => console.log(error)
-  //   );
-  // }
-
-
   
-
 }

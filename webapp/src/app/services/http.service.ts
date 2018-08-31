@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Headers, Http} from '@angular/http';
 
 @Injectable()
-export class HttpService1 {
+export class HttpService {
     constructor(private http: Http) {
 
     }

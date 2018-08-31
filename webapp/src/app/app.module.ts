@@ -13,6 +13,12 @@ import { LeftsidebarComponent } from './dom/leftsidebar/leftsidebar.component';
 import { ContentboxComponent } from './dom/contentbox/contentbox.component';
 import { MapVideoTemplateComponent } from './dom/contentbox/map-video-template/map-video-template.component';
 import { MapVideoWatchComponent } from './map-video-watch/map-video-watch.component';
+import { ContentLoadingComponent } from './map-video-watch/content-loading/content-loading.component';
+import { ErrorNoVideoComponent } from './map-video-watch/error-no-video/error-no-video.component';
+import { VideoBufferComponent } from './map-video-watch/video-buffer/video-buffer.component';
+import { ResponseFormatService } from './services/response-format.service';
+import { ErrorService } from './services/error.service';
+import { HttpService } from './services/http.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -31,7 +37,10 @@ const appRoutes: Routes = [
     LeftsidebarComponent,
     ContentboxComponent,
     MapVideoTemplateComponent,
-    MapVideoWatchComponent
+    MapVideoWatchComponent,
+    ContentLoadingComponent,
+    ErrorNoVideoComponent,
+    VideoBufferComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +55,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],
-  providers: [],
+  providers: [ResponseFormatService, ErrorService, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
